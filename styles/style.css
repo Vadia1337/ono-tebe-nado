@@ -5,7 +5,7 @@
 
 .header__menu {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr 3fr;
   align-items: center;
   margin: 94px 49px 94px 51px;
 }
@@ -64,24 +64,26 @@
 }
 
 .cover {
+  position: relative;
   z-index: 0;
-  background-image: url(../images/cover.jpg);
-  background-size: cover;
-}
-
-.overlay {
-  z-index: 1;
-  background: rgba(0,0,0,.6);
-}
-
-.overlay-cover {
   display: grid;
   grid-template-rows: 3fr 1fr;
   grid-row-gap: 88px;
   padding: 165px 21px 15px 50px;
+  background-image: url(../images/cover.jpg);
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .6);
 }
 
 .cover__title {
+  z-index: 2;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-row-gap: 11px;
@@ -119,6 +121,7 @@
 }
 
 .cover__description {
+  z-index: 2;
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-column-gap: 29px;
@@ -128,7 +131,7 @@
 .cover__description-text {
   justify-self: right;
   color: #FFF;
-  font-family: Raleway;
+  font-family: Raleway, sans-serif;
   font-weight: 400;
   font-size: 22px;
   font-style: normal;
@@ -139,12 +142,13 @@
 }
 
 .bet-button {
+  min-width: 220px;
   margin-right: 29px;
   margin-left: 49px;
   border: 1px solid currentColor;
   padding: 11px;
   color: #fff;
-  font-family: "Raleway", sans-serif;
+  font-family: Raleway, sans-serif;
   font-weight: 400;
   font-size: 22px;
   font-style: normal;
@@ -162,7 +166,7 @@
   margin-bottom: 27px;
   margin-left: 40px;
   color: #000;
-  font-family: Raleway;
+  font-family: Raleway, sans-serif;
   font-weight: 700;
   font-size: 40px;
   font-style: normal;
@@ -171,9 +175,9 @@
 }
 
 .lots__card-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: start;
   grid-gap: 25px;
 }
@@ -186,32 +190,35 @@
   text-decoration: none;
 }
 
-.overlay-lots {
+.card_type {
+  position: relative;
+  z-index: 0;
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: 1fr 3fr;
+  width: 430px;
   height: 450px;
-  padding: 50px 20px 50px 39px;
+  padding: 50px 20px 50px 40px;
+  background-size: cover;
 }
 
 .card_type_film {
   background-image: url(../images/card-lot-01.jpg);
-  background-size: cover;
 }
 
 .card_type_book {
   background-image: url(../images/card-lot-02.jpg);
-  background-size: cover;
 }
 
 .card_type_picture {
   background-image: url(../images/card-lot-03.jpg);
-  background-size: cover;
 }
 
 .card__title {
+  z-index: 1;
   align-self: flex-start;
+  max-width: 350px;
   color: #FFF;
-  font-family: Raleway;
+  font-family: Raleway, sans-serif;
   font-weight: 700;
   font-size: 22px;
   font-style: normal;
@@ -224,9 +231,11 @@
 }
 
 .card__text {
+  z-index: 1;
   align-self: flex-end;
+  max-width: 350px;
   color: #FFF;
-  font-family: Raleway;
+  font-family: Raleway, sans-serif;
   font-weight: 400;
   font-size: 20px;
   font-style: normal;
@@ -235,10 +244,11 @@
 
 .lots__look-more-link {
   display: block;
+  max-width: fit-content;
+  margin-top: 30px;
   margin-left: 39px;
-  padding-top: 30px;
   color: #000;
-  font-family: Raleway;
+  font-family: Raleway, sans-serif;
   font-weight: 400;
   font-size: 20px;
   font-style: normal;
@@ -275,7 +285,7 @@
   margin-top: 101px;
   margin-bottom: 101px;
   color: #000;
-  font-family: Raleway;
+  font-family: Raleway, sans-serif;
   font-weight: 700;
   font-size: 40px;
   font-style: normal;
@@ -283,10 +293,17 @@
   text-transform: uppercase;
 }
 
+.about__text {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-row-gap: 6px;
+}
+
 .about__text p {
-  margin-top: 30px;
+  max-width: 880px;
+  margin-right: 46px;
   color: #000;
-  font-family: Raleway;
+  font-family: Raleway, sans-serif;
   font-weight: 400;
   font-size: 20px;
   font-style: normal;
@@ -328,7 +345,7 @@
 
 .footer__menu-list-item {
   color: #000;
-  font-family: Raleway;
+  font-family: Raleway, sans-serif;
   font-weight: 400;
   font-size: 18px;
   font-style: normal;
@@ -345,11 +362,14 @@
   text-decoration: none;
 }
 
+.footer__social {
+  justify-self: end;
+}
+
 .footer__social-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 48px;
-  justify-self: end;
   list-style: none;
 }
 
